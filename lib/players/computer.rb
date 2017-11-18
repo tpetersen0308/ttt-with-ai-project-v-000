@@ -95,6 +95,11 @@ module Players
       end
     end
 
+    def sample_available_cells(board)
+      index = board.cells.map.with_index{|elem, index| index if (elem == ' ')}.delete_if{|elem| elem == nil}.sample
+      (index + 1).to_s
+    end
+
     def get_valid_even_cell(board)
       index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
       (index + 1).to_s
