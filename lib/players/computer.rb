@@ -22,9 +22,10 @@ module Players
         block(can_block?(board), board)
       elsif prevent(board)
         prevent(board)
-      else sample_available_cells(board)
       elsif board.valid_move?('5')
         computer_move = '5'
+      else sample_available_cells(board)
+
       #elsif board.valid_move?('1')
       #  computer_move = '1'
       #elsif board.valid_move?('3')
