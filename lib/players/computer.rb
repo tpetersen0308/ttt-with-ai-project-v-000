@@ -81,11 +81,13 @@ module Players
       when board.cells[5] && board.cells[7]
         '9' if board.valid_move?('9')
       when (board.cells[0] && board.cells[8]) || (board.cells[2] && board.cells[6])
-        index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
-        (index + 1).to_s
+        #index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
+        #(index + 1).to_s
+        get_valid_even_cell(board)
       when board.cells[2] && board.cells[6]
-        index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
-        (index + 1).to_s
+        #index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
+        #(index + 1).to_s
+        get_valid_even_cell(board)
       when board.cells[1] && board.cells[6]
         '1' if board.valid_move?('1')
       when board.cells[2] && board.cells[7]
@@ -95,28 +97,11 @@ module Players
       else
         false
       end
+    end
 
-    #  if board.cells[1] == self.opponent && board.cells[3] == self.opponent
-    #    return 1 if board.valid_move?(1)
-    #  elsif board.cells[1]== self.opponent && board.cells[5] == self.opponent
-    #    return 3 if board.valid_move?(3)
-    #  elsif board.cells[3] == self.opponent && board.cells[7] == self.opponent
-    #    return 7 if board.valid_move?(7)
-    #  elsif board.cells[5] == self.opponent && board.cells[7] == self.opponent
-    #    return 9 if board.valid_move?(9)
-    #  elsif board.cells[0] == self.opponent && board.cells[8] == self.opponent
-    #    if board.valid_move?(8)
-    #      return 8
-    #    else return 2
-    #    end
-    #  elsif board.cells[2] == self.opponent && board.cells[6] == self.opponent
-    #    if board.valid_move?(8)
-    #      return 8
-    #    else return 2
-    #    end
-    #  else
-    #    false
-    #  end
+    def get_valid_even_cell(board)
+      index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
+      (index + 1).to_s
     end
 
     def opponent
