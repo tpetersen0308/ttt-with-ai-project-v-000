@@ -81,12 +81,8 @@ module Players
       when board.cells[5] && board.cells[7]
         '9' if board.valid_move?('9')
       when (board.cells[0] && board.cells[8]) || (board.cells[2] && board.cells[6])
-        #index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
-        #(index + 1).to_s
         get_valid_even_cell(board)
       when board.cells[2] && board.cells[6]
-        #index = board.cells.map.with_index{|elem, index| index if (elem == ' ' && index.odd?)}.delete_if{|elem| elem == nil}.sample
-        #(index + 1).to_s
         get_valid_even_cell(board)
       when board.cells[1] && board.cells[6]
         '1' if board.valid_move?('1')
