@@ -23,8 +23,8 @@ module Players
       elsif prevent(board)
         prevent(board)
       else sample_available_cells(board)
-      #elsif board.valid_move?('5')
-      #  computer_move = '5'
+      elsif board.valid_move?('5')
+        computer_move = '5'
       #elsif board.valid_move?('1')
       #  computer_move = '1'
       #elsif board.valid_move?('3')
