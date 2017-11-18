@@ -22,10 +22,9 @@ module Players
         block(can_block?(board), board)
       elsif prevent(board)
         prevent(board)
-      elsif board.valid_move?('5')
-        computer_move = '5'
-      else sample_available_cells(board)
-
+      else get_next_best_cell(board)
+      #elsif board.valid_move?('5')
+      #  computer_move = '5'
       #elsif board.valid_move?('1')
       #  computer_move = '1'
       #elsif board.valid_move?('3')
@@ -97,9 +96,8 @@ module Players
       end
     end
 
-    def sample_available_cells(board)
-      index = board.cells.map.with_index{|elem, index| index if (elem == ' ')}.delete_if{|elem| elem == nil}.sample
-      (index + 1).to_s
+    def get_next_best_cell(board)
+      [5,1,3,7,9,2,4,6,8].detect { |n| board.valid_move?(n.to_s)}
     end
 
     def get_valid_even_cell(board)
