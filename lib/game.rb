@@ -110,6 +110,7 @@ class Game
     end
 
     puts "Would you like to play again? <y/Y>"
+    puts "<Any other key to quit>"
     input = gets.chomp
     self.start if input == 'y' || input == 'Y'
   end
