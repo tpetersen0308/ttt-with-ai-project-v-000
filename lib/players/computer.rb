@@ -50,9 +50,7 @@ module Players
     end
 
     def win(win_move, board) #Pass in return value from #can_win?
-      index = win_move.detect do |cell|
-        board.cells[cell] == ' '
-      end
+      index = win_move.detect { |cell| board.cells[cell] == ' ' }
       (index + 1).to_s #=> winning move
     end
 
@@ -68,9 +66,7 @@ module Players
 
 
     def block(block_move, board) #pass in return value from can_block?
-      index = block_move.detect do |cell|
-        board.cells[cell] == ' '
-      end
+      index = block_move.detect { |cell| board.cells[cell] == ' ' }
       (index + 1).to_s #=> blocking move
     end
 
